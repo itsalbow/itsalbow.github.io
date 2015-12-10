@@ -1,0 +1,465 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);
+/* reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+  font-family: "Lato";
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+  font-family: "Lato";
+}
+
+h1, h2, h3 {
+  font-family: "Ubuntu";
+}
+
+.section {
+  background-color: white;
+  color: black;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+  border: 3px solid white;
+  background-color: white;
+}
+nav.navbar.navbar-default.navbar-fixed-top a {
+  color: #34495E;
+  font-size: 14pt;
+  font-family: "Lato";
+}
+nav.navbar.navbar-default.navbar-fixed-top .navbar-brand {
+  font-size: 18pt;
+  font-weight: bold;
+  font-family: "Ubuntu";
+}
+nav.navbar.navbar-default.navbar-fixed-top .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover,
+button.navbar-toggle.collapsed,
+button.navbar-toggle.collapsed:focus,
+button.navbar-toggle.collapsed:active {
+  background-color: #34495E;
+}
+
+.active1 {
+  color: white !important;
+  background-color: #34495E !important;
+}
+
+.active2 {
+  color: white !important;
+  background-color: #27ae60 !important;
+}
+
+.active3 {
+  color: white !important;
+  background-color: #c0392b !important;
+}
+
+.active4 {
+  color: white !important;
+  background-color: #2d2d2d !important;
+}
+
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+#fp-nav ul li a span {
+  background-color: white;
+}
+
+#fp-nav {
+  margin-left: -10px;
+}
+@media screen and (max-width: 630px) {
+  #fp-nav {
+    margin-left: -20px;
+  }
+}
+
+span.work {
+  color: #33FF9F;
+  font-weight: bold;
+}
+
+span.fun {
+  color: #FF7364;
+  font-weight: bold;
+}
+
+.downArrow {
+  color: white;
+  position: relative;
+  top: 20%;
+  font-size: 32pt;
+  width: auto;
+  margin: 0 auto;
+}
+
+.callToAction {
+  background-color: white;
+  display: relative;
+  padding: 0.5em;
+  font-size: 2em;
+  top: 50px;
+  text-decoration: none;
+}
+@media screen and (max-width: 980px) {
+  .callToAction {
+    font-size: 1.8em;
+  }
+}
+@media screen and (max-width: 630px) {
+  .callToAction {
+    font-size: 1.6em;
+  }
+}
+
+#intro {
+  background-image: url(http://i.imgur.com/QSXn6JD.jpg);
+  text-align: center;
+}
+#intro h1 {
+  color: #EFFFEF;
+  font-size: 5em;
+}
+@media screen and (max-height: 400px) {
+  #intro h1 {
+    font-size: 30pt;
+    padding-top: 100px;
+  }
+}
+@media screen and (max-width: 980px) {
+  #intro h1 {
+    font-size: 4.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  #intro h1 {
+    font-size: 3.55552em;
+  }
+}
+@media screen and (max-width: 630px) {
+  #intro h1 {
+    font-size: 2.7em;
+  }
+}
+#intro h2 {
+  font-size: 3em;
+  color: white;
+  padding-top: 15px;
+}
+@media screen and (max-width: 980px) {
+  #intro h2 {
+    font-size: 2.7em;
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #intro h2 {
+    text-shadow: none;
+    font-size: 1.99em;
+  }
+}
+@media screen and (max-width: 630px) {
+  #intro h2 {
+    font-size: 1.8em;
+  }
+}
+
+#aboutPage {
+  background-color: #2DAC62;
+}
+#aboutPage p {
+  text-align: left;
+  font-size: 16pt;
+  color: #042608;
+  line-height: 170%;
+  padding: 12px 0;
+}
+@media screen and (max-width: 980px) {
+  #aboutPage p {
+    font-size: 14pt;
+  }
+}
+#aboutPage .soft {
+  color: #33FF9F;
+  font-size: 14pt;
+}
+@media screen and (max-width: 768px) {
+  #aboutPage .soft {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+#aboutPage h1 {
+  text-align: center;
+  padding: 100px 0 20px 0;
+  color: #2d2d2d;
+  font-size: 36pt;
+}
+@media screen and (max-width: 980px) {
+  #aboutPage h1 {
+    font-size: 30pt;
+    padding-bottom: 5px;
+  }
+}
+#aboutPage .pre {
+  padding-left: 50px;
+}
+@media screen and (max-width: 991px) {
+  #aboutPage .pre {
+    padding-left: 0;
+  }
+}
+#aboutPage h2 {
+  text-align: left;
+  font-size: 20pt;
+  font-weight: bold;
+  color: white;
+  padding-top: 18px;
+}
+@media screen and (max-width: 980px) {
+  #aboutPage h2 {
+    font-size: 16pt;
+  }
+}
+@media screen and (max-width: 768px) {
+  #aboutPage h2 {
+    padding-left: 17px;
+  }
+}
+#aboutPage ul {
+  list-style-type: square;
+}
+#aboutPage li {
+  color: #33FF9F;
+  font-size: 14pt;
+  text-align: left;
+}
+@media screen and (max-width: 980px) {
+  #aboutPage li {
+    font-size: 12pt;
+  }
+}
+@media screen and (max-width: 768px) {
+  #aboutPage ul:first-child {
+    padding-left: 7%;
+  }
+}
+#aboutPage .cataTitle {
+  padding-top: 10px;
+  margin-left: -20px;
+  list-style: none;
+  font-weight: bold;
+  font-size: 16pt;
+}
+@media screen and (max-width: 1199px) {
+  #aboutPage .cataTitle {
+    font-size: 14pt;
+  }
+}
+@media screen and (max-width: 991px) {
+  #aboutPage .cataTitle {
+    padding-bottom: 5px !important;
+    padding-top: 20px !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  #aboutPage .cataTitle {
+    font-size: 13pt;
+  }
+}
+#aboutPage .container {
+  padding: 0 4% 40px 4%;
+}
+@media screen and (max-width: 768px) {
+  #aboutPage .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+@media screen and (max-width: 630px) {
+  #aboutPage .container {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+}
+
+.first {
+  padding: none;
+}
+
+.skills {
+  background-color: #2d2d2d;
+  padding-top: 20px;
+}
+
+#portfolioPage {
+  background-color: #e74c3c;
+}
+#portfolioPage h1 {
+  color: #2d2d2d;
+  padding: 80px 0 30px 0;
+  font-size: 36pt;
+}
+#portfolioPage h2 {
+  color: #96281B;
+}
+
+#contactPage {
+  background-color: #2d2d2d;
+}
+#contactPage h1 {
+  display: inline;
+  float: left;
+  text-align: left;
+  color: #6f6f6f;
+  font-size: 36pt;
+  padding-top: 55px;
+}
+@media screen and (max-width: 1199px) {
+  #contactPage h1 {
+    font-size: 30pt;
+  }
+}
+@media screen and (max-width: 630px) {
+  #contactPage h1 {
+    font-size: 24pt;
+  }
+}
+#contactPage a {
+  float: right;
+  font-size: 34pt;
+  padding: 0;
+  margin: 50px 0 50px 8%;
+  color: white;
+}
+@media screen and (max-width: 1199px) {
+  #contactPage a {
+    font-size: 28pt;
+    margin-left: 6%;
+  }
+}
+@media screen and (max-width: 668px) {
+  #contactPage a {
+    margin-left: 3%;
+    font-size: 24pt;
+  }
+}
+@media screen and (max-width: 578px) {
+  #contactPage a {
+    margin-left: 4px;
+    margin-right: 0px;
+    padding: 5px;
+    font-size: 18pt;
+  }
+}
+#contactPage .btn-facebook {
+  margin-left: 0;
+}
+#contactPage .btn-facebook span:hover {
+  color: #3b5998;
+}
+#contactPage .btn-twitter span:hover {
+  color: #00aced;
+}
+#contactPage .btn-linkedin span:hover {
+  color: #007bb5;
+}
+#contactPage .btn-github span:hover {
+  color: #ff9933;
+}
+#contactPage .btn-envelope span:hover {
+  color: #db4437;
+}
+#contactPage .btn-fire span:hover {
+  color: #215f1e;
+}
+
+/* Animations */
+.bounce {
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-duration: 2s;
+  -moz-animation-delay: 5s;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-duration: 2s;
+  -o-animation-delay: 5s;
+  -o-animation-iteration-count: infinite;
+}
+
+.tada {
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-delay: 3s;
+  -webkit-animation-iteration-count: 1s;
+  -moz-animation-duration: 2s;
+  -moz-animation-delay: 3s;
+  -moz-animation-iteration-count: 1;
+  -o-animation-duration: 2s;
+  -o-animation-delay: 3s;
+  -o-animation-iteration-count: 1;
+}
+
+/* Hovers */
+/* Sweep To Bottom */
+.hvr-sweep-to-bottom {
+  display: inline-block;
+  color: #2C3E50;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-bottom:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #26A65B;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
+  color: #ECF0F1;
+}
+.hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}

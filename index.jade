@@ -1,0 +1,175 @@
+doctype html
+//- Icon to mess aroud with mixins
+mixin iconBar
+	span.icon-bar
+	span.icon-bar
+	span.icon-bar
+	
+html(lang='en')
+	head
+		link(rel='stylesheet prefetch' href='css/bootstrap.min.css')
+		link(rel='stylesheet prefetch' href='css/jquery.fullPage.css')
+		link(rel='stylesheet prefetch' href='css/animate.css')
+		link(rel='stylesheet prefetch' href='css/font-awesome.min.css')
+		link(rel="stylesheet" href="css/main.css")
+
+	body
+		//// Navigation ///////////////////////////////////////////////////////
+		nav.navbar.navbar-default.navbar-fixed-top(id="menu" role="navigation")
+			.container
+				.navbar-header
+					button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+						span.sr-only Toggle navigation
+						+iconBar
+					// logo 
+					a.navbar-brand(href='#home') Alec Armstrong
+				// end nav header
+
+				// Navigation Links
+				.navbar-collapse.collapse#navbar  
+					ul.nav.navbar-nav.navbar-right
+						//- Text, data-menuanchor, href
+						li(data-menuanchor="home")
+							a.active1(href="#home" id="homeLink") Home
+						li.myActive.active(data-menuanchor="about")
+							a(href="#about" id="aboutLink") About
+						li.myActive.active(data-menuanchor="portfolio")
+							a(href="#portfolio" id="portfolioLink") Portfolio
+						li.myActive.active(data-menuanchor="contact")
+							a(href="#contact" id="contactLink") Contact
+		//// End Navigation ///////////////////////////////////////////////////
+
+		//// Main Website /////////////////////////////////////////////////////
+		#fullpage
+			// Introduction
+			#intro.section.active
+				h1 Full Stack Web Developer
+				h2.work 
+					| Code for 
+					span.work work.
+					|  Code for 
+					span.fun fun.
+				a#myButton.callToAction.hvr-sweep-to-bottom(href="#about") Learn more
+				.downArrow.animated.bounce
+					span.glyphicon.glyphicon-chevron-down
+			// End Introduction page
+
+			// About Page
+			#aboutPage.section
+				h1 About Me
+				.container
+					p.first
+						| Hi, I'm Alec. I'm a 26 year old student graduating this year with a Associates
+						| degree in applied science with certification of software engineering.
+						| Growing up I would always try to make friends in different circles.
+						| I love meeting new people and learning new things.
+					p
+						| I grew up as a very active person but I absolutely craved technology also. My 
+						| friends labeled me a "Social Nerd". 
+						| I Would get home from wrestling practice 
+						| and jump right on the somputer to make things in Photoshop or mess around with html.
+						| I started doing graphics design when I was 13 and stearted learning html around
+						| the same time. The coding bug bit me, and it 
+						b bit me hard.
+					p 
+						| I'm a creative person and find no greater rush than creating new things. 
+						| I'm addicted to learning and mastering new technologies and love bouncing idea back 
+						| and forth trying to come up with new, exciting ideas on what to make.
+					// End Summary Column
+
+				// Skills Column
+				.fluid-container.skills
+					.container
+						.row
+							h2 Experience
+							.col-xs-6.col-md-3
+								ul
+									li.cataTitle Languages & Markups
+									li Java
+									li JTSL
+									li C++
+									li Visual Basic
+									li Html
+									li Css
+									li Javascript
+									li Php
+							.col-xs-6.col-md-3
+								ul
+									li.cataTitle Frameworks & Libraries
+									li Bootstrap.css
+									li Bootstrap.js
+									li Fullpage.css
+									li Fullpage.js
+									li Angular.js
+									li JQuery.js
+									li Animate.css
+									li App.js
+
+							.col-xs-6.col-md-3
+								ul.pre
+									li.cataTitle Pre-processors
+									li Haml
+									li Jade
+									li Sass
+									li Scss
+									li Less        
+							.col-xs-6.col-md-3
+								ul
+									li.cataTitle Other
+									li Working with the MVC Model
+									li Java servlets & JSPs
+									li MySQL
+									li Apache Tomcat
+									li Glassfish
+									li Web Applications
+									li Desktop Applications
+									li Graphics design
+									li UI design
+						.row
+							h2 Soft Skills
+							p.soft
+								| My strongest soft skill is my ability to empithize with people, including customers.
+								| I'm able to completely understand where someone is coming from in, whether it be an upset customer trying to get help or 
+								| a client that doesn't quite know how to ask for something they want.
+								br
+								| I'm an overly optomistic person and try my hardest to have a good attitude from day to day.
+								| Great at cheering people up and awesome at handling conflicts. When I was delivering pizza for 4 years I ran across
+								| a handful of obnoxious and/or angry customers and I always handled the situation in a professional manner.
+								br
+								| I am confident in my communication skills and am able to make friends fairly easy even of the most stubborn people. 
+								| Work well with groups. Also I know when to talk and when to shut up.
+								br
+								| I'm a problem solver through and through. Absolutly love puzzles and it's why I got into coding in the first place. 
+								| Love thinking aboutside the box to come up with better more effective ways of accomplishing tasks.
+			// End About Page
+
+			// Portfolio Page
+			#portfolioPage.section
+				h1 Portfolio
+				h2 Coming Soon....
+			// End Portfolio Page
+
+			// Contact Page
+			#contactPage.section.fp-auto-height
+				.container
+					h1 Contact
+					a(href="mailto:alecarms@hotmail.com" target="_blank").btn.btn-social-icon.btn-envelope
+						span.fa.fa-envelope
+					a(href="http://www.linkedin.com/in/alecarms" target="_blank").btn.btn-social-icon.btn-linkedin
+						span.fa.fa-linkedin
+					a(href="http://www.freecodecamp.com/itsalbow" target="_blank").btn.btn-social-icon.btn-fire
+						span.fa.fa-fire
+					a(href="https://github.com/itsalbow" target="_blank").btn.btn-social-icon.btn-github
+						span.fa.fa-github
+					a(href="https://twitter.com/AlecArmz" target="_blank").btn.btn-social-icon.btn-twitter
+						span.fa.fa-twitter  
+					a(href="http://www.facebook.com/roflapz" target="_blank").btn.btn-social-icon.btn-facebook
+						span.fa.fa-facebook
+			// End Contact Page
+
+		// Scripts
+		script(src="js/jquery.min.js")
+		script(src='js/bootstrap.min.js')
+		script(src="js/fullPage.min.js")
+		script(src='js/jquery.slimscroll.min.js')
+		script(src="js/portfolio.js")

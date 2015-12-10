@@ -1,0 +1,365 @@
+
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Ubuntu)
+@import url(http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext)
+
+// Mixins
+@mixin wideTablet
+  @media screen and (max-width: 980px)
+    @content
+    
+@mixin thinTablet
+  @media screen and (max-width: 768px)
+    @content
+    
+@mixin phone
+  @media screen and (max-width: 630px)
+    @content
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td 
+  padding: 0
+  margin: 0
+ 
+body
+  background-color: black
+  font-family: 'Lato'
+a
+  text-decoration: none !important
+p
+  font-family: 'Lato'
+h1, h2, h3
+  font-family: 'Ubuntu'
+.section
+  background-color: white
+  color: black
+  text-align: center
+  background-repeat: no-repeat
+  background-size: cover
+
+// Navigation bar
+nav.navbar.navbar-default.navbar-fixed-top
+  border: 3px solid white
+  background-color: white
+  a
+    color: #34495E
+    font-size: 14pt
+    font-family: 'Lato'
+  .navbar-brand
+    font-size: 18pt
+    font-weight: bold
+    font-family: 'Ubuntu'
+  .icon-bar
+    background-color: white
+  
+.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:hover,
+button.navbar-toggle.collapsed,
+button.navbar-toggle.collapsed:focus,
+button.navbar-toggle.collapsed:active
+  background-color: #34495E
+
+
+// Changing link classes    
+.active1
+  color: white !important
+  background-color: #34495E !important
+.active2
+  color: white !important
+  background-color: #27ae60 !important
+.active3
+  color: white !important
+  background-color: #c0392b !important
+.active4
+  color: white !important
+  background-color: #2d2d2d !important
+
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+#fp-nav ul li a span
+  background-color: white
+  
+#fp-nav
+  margin-left: -10px
+  @include phone
+    margin-left: -20px
+  
+span.work
+  color: #33FF9F
+  font-weight: bold
+  
+span.fun
+  color: #FF7364
+  font-weight: bold
+  
+.downArrow
+  color: white
+  position: relative
+  top: 20%
+  font-size: 32pt
+  width: auto
+  margin: 0 auto
+//end downArrow
+
+.callToAction
+  background-color: white
+  display: relative
+  padding: .5em
+  font-size: 2em
+  top: 50px
+  text-decoration: none
+  @include wideTablet
+    font-size: 1.8em
+  @include thinTablet
+  @include phone
+    font-size: 1.6em
+// End call to action
+  
+//* Introduction Styles
+#intro
+  //background-image: url(http://s28.postimg.org/lmcz7loxp/bg_Header.jpg)
+  background-image: url(http://i.imgur.com/QSXn6JD.jpg)
+  //padding: 3% 0
+  text-align: center
+  // #intro h1
+  h1
+    color: #EFFFEF
+    @media screen and(max-height: 400px)
+      font-size: 30pt
+      padding-top: 100px
+    //text-shadow:  3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+    font-size: 5em
+    // @media queries for #intro h1
+    @include wideTablet
+      font-size: 4.5em
+    @include thinTablet
+      font-size: 3.55552em
+    @include phone
+      font-size: 2.7em
+      //text-shadow:  2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+  // end #intro .introBlock h1
+    
+  // #intro .introBlock h2   
+  h2
+    font-size: 3em
+    color: white
+    //text-shadow:  2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+    padding-top: 15px
+    // @media queries for #intro h2
+    @include wideTablet
+      font-size: 2.7em
+      padding-top: 20px
+    @include thinTablet
+      text-shadow: none
+      font-size: 1.99em
+    @include phone
+      font-size: 1.8em
+  // end #intro h2
+// end #intro
+
+#aboutPage
+  background-color: #2DAC62
+  p
+    text-align: left
+    font-size: 16pt
+    color: #042608
+    line-height: 170%
+    padding: 12px 0
+    @include wideTablet
+      font-size: 14pt    
+  .soft
+    color: #33FF9F
+    font-size: 14pt
+    @include thinTablet
+      padding-left: 18px
+      padding-right: 18px
+    
+  h1
+    text-align: center
+    padding: 100px 0 20px 0
+    color: #2d2d2d
+    font-size: 36pt
+    @include wideTablet
+      font-size: 30pt
+      padding-bottom: 5px  
+  .pre
+    padding-left: 50px
+    @media screen and (max-width: 991px)
+      padding-left: 0
+  h2
+    text-align: left
+    font-size: 20pt
+    font-weight: bold
+    color: white
+    padding-top: 18px
+    @include wideTablet
+      font-size: 16pt
+    @include thinTablet
+      padding-left: 17px
+  ul
+    list-style-type: square
+  li
+    color: #33FF9F
+    font-size: 14pt
+    text-align: left
+    @include wideTablet
+      font-size: 12pt
+  ul:first-child
+    @include thinTablet
+      padding-left: 7%
+  .cataTitle
+    padding-top: 10px
+    margin-left: -20px
+    list-style: none
+    font-weight: bold
+    font-size: 16pt    
+    @media screen and (max-width: 1199px)
+      font-size: 14pt
+    @media screen and (max-width: 991px)
+      padding-bottom: 5px !important
+      padding-top: 20px !important
+    @media screen and (max-width: 480px)
+      font-size: 13pt
+  .container
+    padding: 0 4% 40px 4%
+    @include thinTablet
+      padding-left: 5%
+      padding-right: 5%
+    @include phone
+      padding-left: 7%
+      padding-right: 7%
+.first
+  padding: none
+.skills
+  background-color: #2d2d2d
+  padding-top: 20px
+
+// End About page
+
+// Portfolio Page
+#portfolioPage
+  background-color: #e74c3c 
+  h1
+    color: #2d2d2d
+    padding: 80px 0 30px 0
+    font-size: 36pt
+  h2
+    color: #96281B
+// End portfolio page
+
+#contactPage
+  background-color: #2d2d2d
+  h1
+    display: inline
+    float: left
+    text-align: left
+    color: #6f6f6f
+    font-size: 36pt
+    padding-top: 55px
+    @media screen and(max-width: 1199px)
+      font-size: 30pt
+    @include phone
+      font-size: 24pt
+    // end h1
+  a
+    float: right
+    font-size: 34pt
+    padding: 0
+    margin: 50px 0 50px 8%
+    color: white
+    @media screen and(max-width: 1199px)
+      font-size: 28pt
+      margin-left: 6%
+    @media screen and(max-width: 668px)
+      margin-left: 3%
+      font-size: 24pt
+    @media screen and(max-width: 578px)
+      margin-left: 4px
+      margin-right: 0px
+      padding: 5px
+      font-size: 18pt
+    // End anchor
+  .btn-facebook
+    margin-left: 0
+    span:hover
+      color: #3b5998
+  .btn-twitter span:hover
+    color: #00aced
+  .btn-linkedin span:hover
+    color: #007bb5
+  .btn-github span:hover
+    color: #ff9933
+  .btn-envelope span:hover
+    color: #db4437
+  .btn-fire span:hover
+    color: #215f1e
+/* Animations  
+.bounce
+  -webkit-animation-duration: 2s
+  -webkit-animation-delay: 5s
+  -webkit-animation-iteration-count: infinite
+  -moz-animation-duration: 2s
+  -moz-animation-delay: 5s
+  -moz-animation-iteration-count: infinite
+  -o-animation-duration: 2s
+  -o-animation-delay: 5s
+  -o-animation-iteration-count: infinite
+  
+.tada
+  -webkit-animation-duration: 1.5s
+  -webkit-animation-delay: 3s
+  -webkit-animation-iteration-count: 1s
+  -moz-animation-duration: 2s
+  -moz-animation-delay: 3s
+  -moz-animation-iteration-count: 1
+  -o-animation-duration: 2s
+  -o-animation-delay: 3s
+  -o-animation-iteration-count: 1  
+  
+/* Hovers 
+
+/* Sweep To Bottom
+.hvr-sweep-to-bottom
+  display: inline-block
+  color: #2C3E50
+  vertical-align: middle
+  -webkit-transform: translateZ(0)
+  transform: translateZ(0)
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+  -webkit-backface-visibility: hidden
+  backface-visibility: hidden
+  -moz-osx-font-smoothing: grayscale
+  position: relative
+  -webkit-transition-property: color
+  transition-property: color
+  -webkit-transition-duration: 0.3s
+  transition-duration: 0.3s
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: #26A65B
+    -webkit-transform: scaleY(0)
+    transform: scaleY(0)
+    -webkit-transform-origin: 50% 0
+    transform-origin: 50% 0
+    -webkit-transition-property: transform
+    transition-property: transform
+    -webkit-transition-duration: 0.3s
+    transition-duration: 0.3s
+    -webkit-transition-timing-function: ease-out
+    transition-timing-function: ease-out
+  &:hover, &:focus, &:active
+    color: #ECF0F1
+  &:hover:before, &:focus:before, &:active:before
+    -webkit-transform: scaleY(1)
+    transform: scaleY(1)
+
+
+
