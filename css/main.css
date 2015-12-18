@@ -201,11 +201,13 @@ span.fun {
 #aboutPage .soft {
   color: #33FF9F;
   font-size: 14pt;
+  padding-bottom: 100px
 }
 @media screen and (max-width: 768px) {
   #aboutPage .soft {
     padding-left: 18px;
     padding-right: 18px;
+    padding-bottom: 400px;
   }
 }
 #aboutPage h1 {
