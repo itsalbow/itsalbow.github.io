@@ -16,7 +16,11 @@
 @mixin phone
   @media screen and (max-width: 630px)
     @content
-
+    
+@mixin retina    
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (   min--moz-device-pixel-ratio: 2), only screen and (     -o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+    @content
+  
 /* reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
 form,fieldset,input,textarea,p,blockquote,th,td 
@@ -120,7 +124,7 @@ span.fun
 //* Introduction Styles
 #intro
   //background-image: url(http://s28.postimg.org/lmcz7loxp/bg_Header.jpg)
-  background-image: url(http://i.imgur.com/QSXn6JD.jpg)
+  background-image: url(../images/bgImage.jpg)
   //padding: 3% 0
   text-align: center
   // #intro h1
@@ -132,6 +136,8 @@ span.fun
     //text-shadow:  3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
     font-size: 5em
     // @media queries for #intro h1
+    @include retina
+      font-size: 4.5em
     @include wideTablet
       font-size: 4.5em
     @include thinTablet
@@ -148,6 +154,9 @@ span.fun
     //text-shadow:  2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
     padding-top: 15px
     // @media queries for #intro h2
+    @include retina
+      font-size: 2.7em
+      padding-top: 20px
     @include wideTablet
       font-size: 2.7em
       padding-top: 20px
@@ -167,11 +176,17 @@ span.fun
     color: #042608
     line-height: 170%
     padding: 12px 0
+    @include retina
+      font-size: 16pt
     @include wideTablet
       font-size: 14pt    
   .soft
     color: #33FF9F
     font-size: 14pt
+    padding-bottom: 100px
+    @include retina
+      padding: inherit
+      padding-bottom: 400px
     @include thinTablet
       padding-left: 18px
       padding-right: 18px
@@ -224,6 +239,9 @@ span.fun
       font-size: 13pt
   .container
     padding: 0 4% 40px 4%
+    @include retina
+      padding-left: 5%
+      padding-right: 5%
     @include thinTablet
       padding-left: 5%
       padding-right: 5%

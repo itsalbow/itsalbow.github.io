@@ -9,7 +9,7 @@ form, fieldset, input, textarea, p, blockquote, th, td {
 
 body {
   background-color: black;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 
 a {
@@ -17,11 +17,11 @@ a {
 }
 
 p {
-  font-family: "Lato";
+  font-family: 'Lato';
 }
 
 h1, h2, h3 {
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
 }
 
 .section {
@@ -36,16 +36,19 @@ nav.navbar.navbar-default.navbar-fixed-top {
   border: 3px solid white;
   background-color: white;
 }
+
 nav.navbar.navbar-default.navbar-fixed-top a {
   color: #34495E;
   font-size: 14pt;
-  font-family: "Lato";
+  font-family: 'Lato';
 }
+
 nav.navbar.navbar-default.navbar-fixed-top .navbar-brand {
   font-size: 18pt;
   font-weight: bold;
-  font-family: "Ubuntu";
+  font-family: 'Ubuntu';
 }
+
 nav.navbar.navbar-default.navbar-fixed-top .icon-bar {
   background-color: white;
 }
@@ -87,6 +90,7 @@ button.navbar-toggle.collapsed:active {
 #fp-nav {
   margin-left: -10px;
 }
+
 @media screen and (max-width: 630px) {
   #fp-nav {
     margin-left: -20px;
@@ -115,16 +119,18 @@ span.fun {
 .callToAction {
   background-color: white;
   display: relative;
-  padding: 0.5em;
+  padding: .5em;
   font-size: 2em;
   top: 50px;
   text-decoration: none;
 }
+
 @media screen and (max-width: 980px) {
   .callToAction {
     font-size: 1.8em;
   }
 }
+
 @media screen and (max-width: 630px) {
   .callToAction {
     font-size: 1.6em;
@@ -132,51 +138,73 @@ span.fun {
 }
 
 #intro {
-  background-image: url(http://i.imgur.com/QSXn6JD.jpg);
+  background-image: url(../images/bgImage.jpg);
   text-align: center;
 }
+
 #intro h1 {
   color: #EFFFEF;
   font-size: 5em;
 }
+
 @media screen and (max-height: 400px) {
   #intro h1 {
     font-size: 30pt;
     padding-top: 100px;
   }
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #intro h1 {
+    font-size: 4.5em;
+  }
+}
+
 @media screen and (max-width: 980px) {
   #intro h1 {
     font-size: 4.5em;
   }
 }
+
 @media screen and (max-width: 768px) {
   #intro h1 {
     font-size: 3.55552em;
   }
 }
+
 @media screen and (max-width: 630px) {
   #intro h1 {
     font-size: 2.7em;
   }
 }
+
 #intro h2 {
   font-size: 3em;
   color: white;
   padding-top: 15px;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #intro h2 {
+    font-size: 2.7em;
+    padding-top: 20px;
+  }
+}
+
 @media screen and (max-width: 980px) {
   #intro h2 {
     font-size: 2.7em;
     padding-top: 20px;
   }
 }
+
 @media screen and (max-width: 768px) {
   #intro h2 {
     text-shadow: none;
     font-size: 1.99em;
   }
 }
+
 @media screen and (max-width: 630px) {
   #intro h2 {
     font-size: 1.8em;
@@ -186,6 +214,7 @@ span.fun {
 #aboutPage {
   background-color: #2DAC62;
 }
+
 #aboutPage p {
   text-align: left;
   font-size: 16pt;
@@ -193,43 +222,63 @@ span.fun {
   line-height: 170%;
   padding: 12px 0;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage p {
+    font-size: 16pt;
+  }
+}
+
 @media screen and (max-width: 980px) {
   #aboutPage p {
     font-size: 14pt;
   }
 }
+
 #aboutPage .soft {
   color: #33FF9F;
   font-size: 14pt;
-  padding-bottom: 100px
+  padding-bottom: 100px;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage .soft {
+    padding: inherit;
+    padding-bottom: 400px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #aboutPage .soft {
     padding-left: 18px;
     padding-right: 18px;
-    padding-bottom: 400px;
   }
 }
+
 #aboutPage h1 {
   text-align: center;
   padding: 100px 0 20px 0;
   color: #2d2d2d;
   font-size: 36pt;
 }
+
 @media screen and (max-width: 980px) {
   #aboutPage h1 {
     font-size: 30pt;
     padding-bottom: 5px;
   }
 }
+
 #aboutPage .pre {
   padding-left: 50px;
 }
+
 @media screen and (max-width: 991px) {
   #aboutPage .pre {
     padding-left: 0;
   }
 }
+
 #aboutPage h2 {
   text-align: left;
   font-size: 20pt;
@@ -237,34 +286,41 @@ span.fun {
   color: white;
   padding-top: 18px;
 }
+
 @media screen and (max-width: 980px) {
   #aboutPage h2 {
     font-size: 16pt;
   }
 }
+
 @media screen and (max-width: 768px) {
   #aboutPage h2 {
     padding-left: 17px;
   }
 }
+
 #aboutPage ul {
   list-style-type: square;
 }
+
 #aboutPage li {
   color: #33FF9F;
   font-size: 14pt;
   text-align: left;
 }
+
 @media screen and (max-width: 980px) {
   #aboutPage li {
     font-size: 12pt;
   }
 }
+
 @media screen and (max-width: 768px) {
   #aboutPage ul:first-child {
     padding-left: 7%;
   }
 }
+
 #aboutPage .cataTitle {
   padding-top: 10px;
   margin-left: -20px;
@@ -272,31 +328,44 @@ span.fun {
   font-weight: bold;
   font-size: 16pt;
 }
+
 @media screen and (max-width: 1199px) {
   #aboutPage .cataTitle {
     font-size: 14pt;
   }
 }
+
 @media screen and (max-width: 991px) {
   #aboutPage .cataTitle {
     padding-bottom: 5px !important;
     padding-top: 20px !important;
   }
 }
+
 @media screen and (max-width: 480px) {
   #aboutPage .cataTitle {
     font-size: 13pt;
   }
 }
+
 #aboutPage .container {
   padding: 0 4% 40px 4%;
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #aboutPage .container {
     padding-left: 5%;
     padding-right: 5%;
   }
 }
+
 @media screen and (max-width: 630px) {
   #aboutPage .container {
     padding-left: 7%;
@@ -316,11 +385,13 @@ span.fun {
 #portfolioPage {
   background-color: #e74c3c;
 }
+
 #portfolioPage h1 {
   color: #2d2d2d;
   padding: 80px 0 30px 0;
   font-size: 36pt;
 }
+
 #portfolioPage h2 {
   color: #96281B;
 }
@@ -328,6 +399,7 @@ span.fun {
 #contactPage {
   background-color: #2d2d2d;
 }
+
 #contactPage h1 {
   display: inline;
   float: left;
@@ -336,16 +408,19 @@ span.fun {
   font-size: 36pt;
   padding-top: 55px;
 }
+
 @media screen and (max-width: 1199px) {
   #contactPage h1 {
     font-size: 30pt;
   }
 }
+
 @media screen and (max-width: 630px) {
   #contactPage h1 {
     font-size: 24pt;
   }
 }
+
 #contactPage a {
   float: right;
   font-size: 34pt;
@@ -353,18 +428,21 @@ span.fun {
   margin: 50px 0 50px 8%;
   color: white;
 }
+
 @media screen and (max-width: 1199px) {
   #contactPage a {
     font-size: 28pt;
     margin-left: 6%;
   }
 }
+
 @media screen and (max-width: 668px) {
   #contactPage a {
     margin-left: 3%;
     font-size: 24pt;
   }
 }
+
 @media screen and (max-width: 578px) {
   #contactPage a {
     margin-left: 4px;
@@ -373,24 +451,31 @@ span.fun {
     font-size: 18pt;
   }
 }
+
 #contactPage .btn-facebook {
   margin-left: 0;
 }
+
 #contactPage .btn-facebook span:hover {
   color: #3b5998;
 }
+
 #contactPage .btn-twitter span:hover {
   color: #00aced;
 }
+
 #contactPage .btn-linkedin span:hover {
   color: #007bb5;
 }
+
 #contactPage .btn-github span:hover {
   color: #ff9933;
 }
+
 #contactPage .btn-envelope span:hover {
   color: #db4437;
 }
+
 #contactPage .btn-fire span:hover {
   color: #215f1e;
 }
@@ -438,6 +523,7 @@ span.fun {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
 .hvr-sweep-to-bottom:before {
   content: "";
   position: absolute;
@@ -458,9 +544,11 @@ span.fun {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+
 .hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
   color: #ECF0F1;
 }
+
 .hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);

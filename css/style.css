@@ -154,6 +154,12 @@ span.fun {
   }
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #intro h1 {
+    font-size: 4.5em;
+  }
+}
+
 @media screen and (max-width: 980px) {
   #intro h1 {
     font-size: 4.5em;
@@ -176,6 +182,13 @@ span.fun {
   font-size: 3em;
   color: white;
   padding-top: 15px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #intro h2 {
+    font-size: 2.7em;
+    padding-top: 20px;
+  }
 }
 
 @media screen and (max-width: 980px) {
@@ -210,6 +223,12 @@ span.fun {
   padding: 12px 0;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage p {
+    font-size: 16pt;
+  }
+}
+
 @media screen and (max-width: 980px) {
   #aboutPage p {
     font-size: 14pt;
@@ -219,6 +238,14 @@ span.fun {
 #aboutPage .soft {
   color: #33FF9F;
   font-size: 14pt;
+  padding-bottom: 100px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage .soft {
+    padding: inherit;
+    padding-bottom: 400px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -323,6 +350,13 @@ span.fun {
 
 #aboutPage .container {
   padding: 0 4% 40px 4%;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  #aboutPage .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 @media screen and (max-width: 768px) {
