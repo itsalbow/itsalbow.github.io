@@ -87,12 +87,12 @@ body .buttonDiv .btn:active {
 footer {
   display: inline-block;
   bottom: 0;
-  margin-top: 100px;
+  margin-top: 0;
   width: 100%;
   font-family: 'Bad Script';
   font-size: 16pt;
-  text-align: right;
+  text-align: center;
   color: #AAA;
   margin-bottom: 0;
-  height: 0; 
+  height: 0;
 }
