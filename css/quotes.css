@@ -78,6 +78,7 @@ body .buttonDiv .btn:active {
 
 #quote-machine {
   text-align: left;
+  background-image: url("../images/Quote.png");
   background-repeat: no-repeat;
   background-position: 20px 20px;
   background-size: 60px auto;
