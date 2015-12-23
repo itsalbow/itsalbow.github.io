@@ -392,7 +392,81 @@ span.fun {
 }
 
 #portfolioPage h2 {
-  color: #96281B;
+  color: white;
+}
+
+.portfolioList {
+  list-style: none;
+  margin: 0px;
+  padding-left: 10%;
+}
+
+.portfolioList img {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+  z-index: 4;
+  height: 300px;
+  width: 400px;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.portfolioList .caption {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.45s ease-in-out;
+  -moz-transition: all 0.45s ease-in-out;
+  -o-transition: all 0.45s ease-in-out;
+  -ms-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+
+.portfolioList .blur {
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 300px;
+  width: 400px;
+  z-index: 5;
+  position: absolute;
+}
+
+.portfolioList .caption-text {
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  top: 100px;
+}
+
+.portfolioList .caption-text h2 {
+  text-transform: uppercase;
+  font-size: 24pt;
+}
+
+.portfolioList li {
+  float: left;
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolioList li:hover .caption {
+  opacity: 1;
+}
+
+.portfolioList li:hover img {
+  opacity: 1;
+  opacity-transform: scale(1.5, 1.5);
+  -webkit-transform: scale(1.5, 1.5);
+  -moz-transform: scale(1.5, 1.5);
+  -ms-transform: scale(1.5, 1.5);
+  -o-transform: scale(1.5, 1.5);
 }
 
 #contactPage {
