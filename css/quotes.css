@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Bad+Script);
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,400italic);
 body {
+  padding: 50px;
   background-color: #2d2d2d;
-  padding: 0 25px;
 }
 
 body h1 {
   color: #82E6FF;
-  margin-top: 15%;
+  margin-top: 2%;
   text-align: center;
   font-family: 'Bad Script';
   font-size: 38pt;
@@ -68,15 +68,16 @@ body .buttonDiv .btn:active {
 .mainBody h2 {
   color: #004047;
   font-style: italic;
-  font-size: 20pt;
+  font-size: 26pt;
 }
 
 .mainBody h3 {
   color: #004047;
+  font-size: 16pt;
 }
 
 #quote-machine {
-  background-image: url("../images/Quote.png");
+  text-align: left;
   background-repeat: no-repeat;
   background-position: 20px 20px;
   background-size: 60px auto;
