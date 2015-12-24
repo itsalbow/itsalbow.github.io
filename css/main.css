@@ -401,6 +401,10 @@ span.fun {
   padding-left: 10%;
 }
 
+.portfolioList li {
+  margin-right: 10px;
+}
+
 .portfolioList img {
   margin: 0px;
   padding: 0px;
@@ -427,7 +431,7 @@ span.fun {
 }
 
 .portfolioList .blur {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.75);
   height: 300px;
   width: 400px;
   z-index: 5;

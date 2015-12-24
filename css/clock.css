@@ -1,0 +1,183 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:700);
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+body {
+  background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/escheresque_ste.png");
+  background-color: #151515;
+  margin-top: -20px;
+  font-family: Oswald;
+}
+
+body h1 {
+  font-weight: 700;
+}
+
+.page-header {
+  text-align: center;
+  margin: 0 0 100px 0;
+  padding-bottom: 15px;
+  padding-top: 25px;
+  border-bottom: none;
+  box-shadow: 0 6px 10px -1px black;
+  background-color: white;
+}
+
+.page-header h1 {
+  color: #e74c3c;
+}
+
+.page-header h1 small {
+  color: #777;
+}
+
+small {
+  padding-left: 20px;
+}
+
+.fluid-container {
+  margin: 0 3%;
+}
+
+.fluid-container .container {
+  padding: 15px 25px 10px 25px;
+  text-align: center;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 6px 10px -1px black;
+  margin-bottom: 25px;
+}
+
+.fluid-container .container h2 {
+  font-weight: 300;
+  margin-bottom: 0;
+  padding-bottom: 25px;
+}
+
+.fluid-container .container h2 span:nth-child(1) {
+  padding-left: 9px;
+}
+
+.actions {
+  text-align: left;
+  margin-top: 25px;
+}
+
+hr {
+  border-top: 1px solid #e74c3c;
+  width: 70%;
+}
+
+.symbol {
+  color: #e74c3c;
+  font-size: 18pt;
+  font-family: 'Roboto Mono';
+  font-weight: bold;
+  background-color: #2f2f2f;
+  margin: 10px;
+  padding: 0 9px;
+  border-radius: 25px;
+  vertical-align: 5px;
+}
+
+#work-plus, #break-plus {
+  margin-left: 60px;
+}
+
+.actions a:focus {
+  color: #e74c3c;
+}
+
+.actions a {
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.actions a:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.actions a:active {
+  background-color: #e74c3c;
+  color: #2f2f2f;
+}
+
+.actions .symbol {
+  font-size: 26pt;
+  vertical-align: 6px;
+  border-radius: 25px;
+  padding: 0 12px;
+}
+
+.actions a:nth-child(1) {
+  padding-left: 10px;
+  padding-right: 13px;
+}
+
+#work-timer, #break-timer {
+  font-size: 32pt;
+  padding-left: 5px;
+  padding-right: 5px;
+  bottom: 24px;
+  position: absolute;
+}
+
+#enter button {
+  font-family: Oswald;
+  font-weight: 400;
+  font-size: 20pt;
+  width: 20%;
+  border-radius: 20px;
+  background-color: #e74c3c;
+  transition: all 0.4s ease;
+}
+
+#enter button:hover {
+  background-color: #c72c1c;
+}
+
+#enter button:active {
+  background-color: #2f2f2f;
+}
+
+.clock {
+  box-shadow: inset 0px 10px 20px #000, inset 0px -10px 20px #000;
+  width: 70%;
+  background-color: #1c1c1c;
+  height: 220px;
+  border-radius: 25px;
+  margin: auto auto 10px auto;
+}
+
+.clock h2 {
+  font-family: 'Share Tech Mono';
+  font-size: 32pt;
+  font-weight: 300;
+  padding-top: 15px;
+  padding-bottom: 0px !important;
+  color: #fff;
+}
+
+.clock h3 {
+  color: #fff;
+  font-family: 'Share Tech Mono';
+  font-weight: thin;
+  font-size: 90pt;
+  letter-spacing: 4px;
+  color: #e72c1c;
+  color: #fff;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover {
+  outline: 0px !important;
+  -webkit-appearance: none;
+}
