@@ -1,0 +1,535 @@
+<!-- 
+	Alec Armstrong Local Weather web application project
+	itsalbow.github.io
+-->
+
+<!DOCTYPE html><html class=''>
+<head><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="canonical" href="http://codepen.io/itsalbow/pen/ZQLNpm?editors=110" />
+<title>Weather App ~ Alec Armstrong</title>
+<link rel='stylesheet prefetch' href='//codepen.io/assets/reset/normalize.css'><link rel='stylesheet prefetch' href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+<style class="cp-pen-styles">@font-face {
+  font-family: 'MeteoconsRegular';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/meteocons-webfont.eot");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/meteocons-webfont.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/meteocons-webfont.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/meteocons-webfont.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/meteocons-webfont.svg#MeteoconsRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon:before {
+  font-family: 'MeteoconsRegular';
+  content: attr(data-icon);
+}
+
+body {
+  font-family: 'helvetica';
+  background: url(https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925) no-repeat center center fixed;
+  background-size: cover !important;
+  overflow-x: hidden;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+h1 {
+  color: rgba(10, 10, 30, 0.8);
+  font-weight: 400;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+@media only screen and (max-width: 1060px) {
+  h1 {
+    text-align: center;
+    margin-top: 2%;
+  }
+}
+h1 small {
+  font-size: .786em;
+}
+
+.wrapper {
+  color: white;
+  width: 45%;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1em;
+  box-shadow: 0px 0px 75px rgba(0, 0, 0, 0.6);
+}
+@media only screen and (max-width: 1060px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .wrapper {
+    width: 90%;
+  }
+  .wrapper #temp, .wrapper #wind {
+    font-size: 28pt !important;
+  }
+}
+.wrapper #icon, .wrapper #lblTemp, .wrapper #lblWind {
+  margin-bottom: .5em;
+}
+.wrapper #icon {
+  font-size: 6em;
+  color: yellow;
+  text-align: center;
+  margin-top: .75em;
+}
+@media only screen and (max-width: 500px) {
+  .wrapper #icon {
+    font-size: 5em;
+  }
+}
+.wrapper #lblTemp {
+  font-size: 4em;
+}
+@media only screen and (max-width: 500px) {
+  .wrapper #lblTemp {
+    font-size: 3.5em;
+  }
+}
+.wrapper #lblWind {
+  font-size: 3.9em;
+}
+@media only screen and (max-width: 500px) {
+  .wrapper #lblWind {
+    font-size: 3.3em;
+  }
+}
+.wrapper #lblWind #wind {
+  padding-left: .42em;
+}
+.wrapper h2 {
+  font-weight: 400;
+}
+.wrapper h3 {
+  line-height: .5em;
+  text-align: left;
+  font-family: MeteoconsRegular;
+  font-size: 5em;
+}
+.wrapper h3 #unit {
+  font-weight: 500;
+  font-size: .7em;
+}
+.wrapper #temp, .wrapper #condition, .wrapper #wind {
+  font-family: 'Helvetica';
+  font-weight: 500;
+  font-size: 38pt;
+  line-height: 0;
+}
+.wrapper #condition {
+  color: yellow;
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+@media only screen and (max-width: 500px) {
+  .wrapper #condition {
+    font-size: 2.75em;
+  }
+}
+.wrapper a {
+  text-decoration: none;
+  font-size: 16pt;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: all .8s ease;
+  transition: all .8s ease;
+  color: #2d2d2d;
+  display: inline-block;
+  width: 100%;
+  padding: 5px 0;
+}
+.wrapper a:hover {
+  background-color: #eee;
+}
+.wrapper .fiveDay {
+  opacity: 0;
+  margin-top: 0px;
+}
+.wrapper .fiveDay .day {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.wrapper .fiveDay .day li {
+  font-size: 18pt;
+  line-height: 1.75em;
+  display: inline-block;
+  width: 24%;
+}
+.wrapper .fiveDay .day li:nth-child(1) {
+  text-align: left;
+  font-weight: bold;
+}
+.wrapper .fiveDay .day li i {
+  margin-right: 10px;
+}
+.wrapper .fiveDay .day li .pic {
+  margin-left: 10px;
+}
+@media only screen and (max-width: 500px) {
+  .wrapper .fiveDay .day li {
+    font-size: 14pt;
+  }
+}
+</style></head><body>
+
+<h1>Local Weather<br/><small>by Alec Armstrong</small></h1>
+<div class="wrapper">
+  <h2><span id="city">City</span>,&nbsp<span id="state">State</span></h2>
+  <h3 id="icon" data-icon="1" class="icon"></h3>
+  <h3 id="condition">Sunny</h3>
+  <h3 id="lblTemp">'<span id="temp">100</span><span id="unit"> </span></h3>
+  <h3 id="lblWind">(<span id="wind">N 5.0 kn</span></h3><a href="#">Five day forecast</a>
+  <div class="fiveDay">
+    <ul id="0" class="day">
+      <li class="day-name">Mon</li>
+      <li><i class="icon-long-arrow-down"></i><span class="down">55</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><i class="icon-long-arrow-up"></i><span class="up">85</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><span class="ico-condition">wind</span><span data-icon="F" class="icon pic"></span></li>
+    </ul>
+    <ul id="1" class="day">
+      <li class="day-name">Tue</li>
+      <li><i class="icon-long-arrow-down"></i><span class="down">55</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><i class="icon-long-arrow-up"></i><span class="up">85</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><span class="ico-condition">wind</span><span data-icon="F" class="icon pic"></span></li>
+    </ul>
+    <ul id="2" class="day">
+      <li class="day-name">Wed</li>
+      <li><i class="icon-long-arrow-down"></i><span class="down">55</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><i class="icon-long-arrow-up"></i><span class="up">85</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><span class="ico-condition">wind</span><span data-icon="F" class="icon pic"></span></li>
+    </ul>
+    <ul id="3" class="day">
+      <li class="day-name">Thu</li>
+      <li><i class="icon-long-arrow-down"></i><span class="down">55</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><i class="icon-long-arrow-up"></i><span class="up">85</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><span class="ico-condition">wind</span><span data-icon="F" class="icon pic"></span></li>
+    </ul>
+    <ul id="4" class="day">
+      <li class="day-name">Fri</li>
+      <li><i class="icon-long-arrow-down"></i><span class="down">55</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><i class="icon-long-arrow-up"></i><span class="up">85</span><span data-icon="+" class="icon measurement"></span></li>
+      <li><span class="ico-condition">wind</span><span data-icon="F" class="icon pic"></span></li>
+    </ul>
+  </div>
+</div>
+</script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src='http://loktar00.github.io/JQuery-Snowfall/snowfall.jquery.min.js'></script>
+<script>
+var myKey = 'OThjOTM5NDZhMjE2ZDBmZDVlYmNiNzZhZGIzMjZkNTY=';
+var weatherCall = '', currentCall = '', unit = '';
+var grey = '#2d2d2d', wt = '#FFF', blkTrans = 'rgba(0,0,0,.6)', wtTrans = 'rgba(255,255,255,.6)', drkRed = '#CF000F', ltRed = '#EF4836', drkBlu = '#446CB3', ltBlu = '#81CFE0';
+var impCodes = [
+    'US',
+    'BS',
+    'BZ',
+    'KY',
+    'PW'
+];
+var nextDays = [];
+var icons = {
+    '01d': [
+        'yellow',
+        '1',
+        'https://images.unsplash.com/photo-1424581342241-2b1aba4d3462?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=8068bbe06d0556fd248eef0c3a6f01ef',
+        'sunny day credit: https://unsplash.com/jeremydgreat'
+    ],
+    '02d': [
+        wt,
+        '3',
+        'http://i.imgur.com/R8Fq9ap.jpg',
+        'few clouds credit: http://www.morguefile.com/creative/Koan'
+    ],
+    '03d': [
+        wt,
+        '5',
+        'https://images.unsplash.com/photo-1445264618000-f1e069c5920f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=c97353ee9b289603979fad2a2f286c86',
+        'scattered clouds credit: https://unsplash.com/plasticmind'
+    ],
+    '04d': [
+        wt,
+        '%',
+        'https://images.unsplash.com/photo-1418147354455-16e37ba9a05c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f14b11addbc78ead7dc79b4de7f726b9',
+        'broken clouds credit: https://unsplash.com/crrrrraig'
+    ],
+    '09d': [
+        wt,
+        '7',
+        'https://images.unsplash.com/photo-1444402185522-47a923ee3e25?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1100&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'sky full of clouds credit: https://unsplash.com/nwphoto'
+    ],
+    '10d': [
+        wt,
+        '8',
+        'http://i.imgur.com/cEXWJdi.jpg',
+        'big clouds over water credit: https://www.morguefile.com/creative/cbcs'
+    ],
+    '11d': [
+        wt,
+        '6',
+        'https://images.unsplash.com/photo-1432927994002-af88b5da76a2?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1050&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'day time thunderstorm credit: https://unsplash.com/guillaume'
+    ],
+    '13d': [
+        wt,
+        '#',
+        'https://images.unsplash.com/photo-1422551603551-9403b0d77dca?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1050&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'snowy day credit: https://unsplash.com/mili_vigerova'
+    ],
+    '50d': [
+        wt,
+        'J',
+        'https://images.unsplash.com/31/4dAw8Su1SyaQH5ABC87S_Traunsee-Toscana_2014-02-01%20(90%20von%20117).jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=f1415d5306e7455a1d98cef0d541de58',
+        'misty day credit: https://unsplash.com/pauleharrer'
+    ],
+    '01n': [
+        grey,
+        '2',
+        'https://images.unsplash.com/photo-1444424050109-31f057e1e858?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925',
+        'clear night credit: https://unsplash.com/camadams'
+    ],
+    '02n': [
+        grey,
+        '4',
+        'https://images.unsplash.com/photo-1441237990380-b6f17f0c3f4e?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925',
+        'few clouds at night credit: https://unsplash.com/rodsot'
+    ],
+    '03n': [
+        grey,
+        '5',
+        'https://images.unsplash.com/photo-1417919452205-b9962ef65386?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1100&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'scattered clouds at night credit: https://unsplash.com/gabrielssantiago'
+    ],
+    '04n': [
+        grey,
+        '%',
+        'https://images.unsplash.com/photo-1429305336325-b84ace7eba3b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=3a86834eb7f4628c1f2ef234ee4d8279',
+        'broken clouds at night credit: https://unsplash.com/mrblairfraser'
+    ],
+    '09n': [
+        grey,
+        '7',
+        'https://images.unsplash.com/photo-1447774105426-9d78ea5204cd?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1100&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'cloudy night credit: https://unsplash.com/itkin'
+    ],
+    '10n': [
+        grey,
+        '8',
+        'https://images.unsplash.com/16/unsplash_5252b10dacd20_1.JPG?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1050&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'storm clouds at night credit: https://unsplash.com/guillaume'
+    ],
+    '11n': [
+        grey,
+        '6',
+        'https://images.unsplash.com/photo-1431440869543-efaf3388c585?crop=entropy&dpr=0.90&fit=crop&fm=jpg&h=1050&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2150',
+        'night time thunderstorm credit: https://unsplash.com/brenomachado'
+    ],
+    '13n': [
+        grey,
+        '#',
+        'http://i.imgur.com/3E741Id.jpg',
+        'snowy night credit: https://www.flickr.com/photos/sonstroem/'
+    ],
+    '50n': [
+        grey,
+        'K',
+        'https://images.unsplash.com/23/do-the-dew.JPG?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925',
+        'night mist credit: https://unsplash.com/yuriykhimanin'
+    ]
+};
+$(document).ready(function () {
+    $('.fiveDay').hide();
+    getDays();
+    setDays();
+    $.getJSON('http://freegeoip.net/json/', function (data) {
+        unit = isImperial(data.country_code);
+        currentCall = 'http://api.openweathermap.org/data/2.5/weather?lat=' + data.latitude + '&lon=' + data.longitude + '&units=' + unit + '&APPID=';
+        bobsCall = 'http://api.openweathermap.org/data/2.5/forecast?lat=' + data.latitude + '&lon=' + data.longitude + '&units=' + unit + '&APPID=';
+        $('#city').text(data.city);
+        $('#state').text(data.region_name);
+        weatherMan();
+        bobsForecast();
+    });
+    $('a').click(function (e) {
+        e.preventDefault();
+        if (!$('a').hasClass('five')) {
+            $('.fiveDay').animate({
+                opacity: 1,
+                height: 'show'
+            }, 600);
+            $('a').addClass('five');
+            $('html, body').animate({ scrollTop: $(document).height() }, 600);
+        } else {
+            $('.fiveDay').animate({
+                opacity: 0,
+                height: 'hide'
+            }, 600);
+            $('a').removeClass('five');
+        }
+    });
+});
+function isImperial(cc) {
+    for (var code in impCodes)
+        if (impCodes[code] === cc)
+            return 'imperial';
+    return 'metric';
+    window.CP.exitedLoop(0);
+}
+function isDay(icon) {
+    var char = icon.slice(-1);
+    return char === 'd';
+}
+function getDir(deg) {
+    var dir = Math.floor(deg / 22.5 + 0.5);
+    var directions = [
+        'N',
+        'NNE',
+        'NE',
+        'ENE',
+        'E',
+        'ESE',
+        'SE',
+        'SSE',
+        'S',
+        'SSW',
+        'SW',
+        'WSW',
+        'W',
+        'WNW',
+        'NW',
+        'NNW'
+    ];
+    return directions[dir % 16];
+}
+function getDays() {
+    var d = new Date();
+    var day = [
+        'Sun',
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thu',
+        'Fri',
+        'Sat'
+    ];
+    for (var i = d.getDay() + 1, c = 0; c < 5; c++) {
+        if (window.CP.shouldStopExecution(1)) {
+            break;
+        }
+        i = i > 6 ? 0 : i;
+        nextDays.push(day[i]);
+        i++;
+    }
+    window.CP.exitedLoop(1);
+}
+function setDays() {
+    for (var day in nextDays) {
+        if (window.CP.shouldStopExecution(2)) {
+            break;
+        }
+        $('#' + day).find('.day-name').text(nextDays[day]);
+    }
+    window.CP.exitedLoop(2);
+}
+function weatherMan() {
+    $.getJSON(currentCall + atob(myKey).toString().split(',').join('') + '', function (data) {
+        JSON.stringify(data);
+        var temp = 0, ico = '', status = '', direction = '', speed = '', day = true;
+        temp = parseFloat(data.main.temp.toFixed(1));
+        ico = data.weather[0].icon;
+        status = data.weather[0].description;
+        status = status.charAt(0).toUpperCase() + status.slice(1);
+        day = isDay(ico);
+        direction = getDir(data.wind.deg);
+        speed = data.wind.speed;
+        if (day) {
+            $('.wrapper').css('background-color', blkTrans);
+            $('h3').css('color', wt);
+            $('h1').css('color', blkTrans);
+            $('a').css({
+                'background-color': wtTrans,
+                'color': grey
+            });
+            $('.day:nth-child(2n + 1)').css('color', '#eee');
+            $('.day:nth-child(2n)').css({
+                'background-color': wtTrans,
+                'color': grey
+            });
+            $('a').hover(function () {
+                $(this).css('background-color', '#eee');
+            }, function () {
+                $(this).css('background-color', wtTrans);
+            });
+        } else {
+            $('.wrapper').css('background-color', wtTrans);
+            $('h1').css('color', 'rgba(255,255,255,.45)');
+            $('h3').css('color', grey);
+            $('a').css({
+                'background-color': blkTrans,
+                'color': '#eee'
+            });
+            $('.day:nth-child(2n + 1)').css('color', grey);
+            $('.day:nth-child(2n)').css({
+                'background-color': blkTrans,
+                'color': '#eee'
+            });
+            $('a').hover(function () {
+                $(this).css('background-color', grey);
+            }, function () {
+                $(this).css('background-color', blkTrans);
+            });
+        }
+        $('#icon, #condition, h2').css('color', icons[ico][0]);
+        $('#icon').attr('data-icon', icons[ico][1]);
+        $('#condition').text(status);
+        $('body').css('background', 'url("' + icons[ico][2] + '") no-repeat center center fixed');
+        $('body').attr('title', icons[ico][3]);
+        $('#unit').text(unit === 'imperial' ? '+' : '*');
+        $('#temp').text(temp);
+        if (unit === 'imperial') {
+            $('#wind').text(direction + ' ' + parseFloat((speed * 1.15).toFixed(1)) + ' mph');
+        } else {
+            $('#wind').text(direction + ' ' + speed + ' kn');
+        }
+        if (unit === 'imperial' && temp > 80 || unit === 'metric' && temp > 26) {
+            if (day) {
+                $('#temp').css('color', ltRed);
+                $('#lblTemp').css('color', ltRed);
+            } else {
+                $('#temp').css('color', drkRed);
+                $('#lblTemp').css('color', drkRed);
+            }
+        } else if (unit === 'imperial' && temp > 33 || unit === 'metric' && temp > 1) {
+            $('#temp').css('color', wt);
+            $('#lblTemp').css('color', wt);
+        } else {
+            if (day) {
+                $('#temp').css('color', ltBlu);
+                $('#lblTemp').css('color', ltBlu);
+            } else {
+                $('#temp').css('color', drkBlu);
+                $('#lblTemp').css('color', drkBlu);
+            }
+        }
+    });
+}
+function bobsForecast() {
+    $.getJSON(bobsCall + atob(myKey).toString().split(',').join('') + '', function (data) {
+        JSON.stringify(data);
+        var u = unit === 'imperial' ? '+' : '*';
+        var dayIcon = '';
+        for (var item in nextDays) {
+            dayIcon = data.list[item].weather[0].icon;
+            $('#' + item).find('.down').text(parseFloat(data.list[item].main.temp_min.toFixed(1)));
+            $('#' + item).find('.measurement').attr('data-icon', u);
+            $('#' + item).find('.up').text(parseFloat(data.list[item].main.temp_max.toFixed(1)));
+            $('#' + item).find('.ico-condition').text(data.list[item].weather[0].main);
+            $('#' + item).find('.pic').attr('data-icon', icons[dayIcon][1]);
+        }
+    });
+}
+</script>
+</body></html>
