@@ -376,7 +376,6 @@ function isImperial(cc) {
         if (impCodes[code] === cc)
             return 'imperial';
     return 'metric';
-    window.CP.exitedLoop(0);
 }
 function isDay(icon) {
     var char = icon.slice(-1);
@@ -416,23 +415,16 @@ function getDays() {
         'Sat'
     ];
     for (var i = d.getDay() + 1, c = 0; c < 5; c++) {
-        if (window.CP.shouldStopExecution(1)) {
-            break;
-        }
+        
         i = i > 6 ? 0 : i;
         nextDays.push(day[i]);
         i++;
     }
-    window.CP.exitedLoop(1);
 }
 function setDays() {
     for (var day in nextDays) {
-        if (window.CP.shouldStopExecution(2)) {
-            break;
-        }
         $('#' + day).find('.day-name').text(nextDays[day]);
     }
-    window.CP.exitedLoop(2);
 }
 function weatherMan() {
     $.getJSON(currentCall + atob(myKey).toString().split(',').join('') + '', function (data) {
