@@ -23,7 +23,6 @@ body {
   font-family: 'helvetica';
   background: url(https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925) no-repeat center center fixed;
   background-size: cover !important;
-  overflow-x: hidden;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
@@ -77,39 +76,6 @@ h1 small {
   text-align: center;
   margin-top: .75em;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-@media screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
-  .wrapper #lblWind {
-    font-size: 3.3em;
-  }
-  .wrapper #lblTemp {
-    font-size: 3.5em;
-  }
-  .wrapper #icon {
-    font-size: 5em;
-  }
-  .wrapper #condition {
-    font-size: 2.75em;
-  }
-  .wrapper{
-	  width: 90%;
-	  height: 90%;
-  }
-  .wrapper .fiveDay .day li {
-    font-size: 1em;
-  }
-  .wrapper h3{
-	  font-size: 3em;
-  }
-}
-
-=======
->>>>>>> parent of a654a33... added 3x dpi support
-=======
->>>>>>> parent of a654a33... added 3x dpi support
 @media only screen and (max-width: 500px) {
   .wrapper #icon {
     font-size: 5em;
@@ -131,11 +97,16 @@ h1 small {
     font-size: 3.3em;
   }
 }
+.wrapper #lblWind #wind {
+  padding-left: .42em;
+}
+.wrapper h2 {
+  font-weight: 400;
 }
 .wrapper h3 {
   line-height: .5em;
   text-align: left;
-  font-family: 'MeteoconsRegular';
+  font-family: MeteoconsRegular;
   font-size: 5em;
 }
 .wrapper h3 #unit {
