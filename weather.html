@@ -352,7 +352,7 @@ $(document).ready(function () {
         $('#state').text(data.region_name);
         weatherMan();
         bobsForecast();
-    });
+    }).fail(function(){alert('Turn off ad block and refresh if you get this alert');});
     $('a').click(function (e) {
         e.preventDefault();
         if (!$('a').hasClass('five')) {
