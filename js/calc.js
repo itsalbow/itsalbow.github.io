@@ -68,6 +68,12 @@ $( document ).ready( function() {
 				case '+': // Plus
 					updateTotal(input);
 					break;
+					
+				case '.': // decismal
+					if(str.index('.') < 0){
+						str += input;
+					}
+					break;
 										
 				case '%': // Get percentage of current sub-total
 					if(str !== "" && str !== " "){ // if no data entered
@@ -77,7 +83,10 @@ $( document ).ready( function() {
 						alert("Enter a number and then press the % button");
 					}// end else			
 					break;
-	
+				case '.':
+					if(str.indexOf('.') > 0){
+						break;
+					}
 				default: // All Number buttons and decimal button
 					if(hitEquals === true && sub.indexOf(" ") < 0 ){
 						total = 0;
