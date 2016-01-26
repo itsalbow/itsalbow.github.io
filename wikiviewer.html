@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+
+
+    <title>CodePen - Wiki Viewer</title>
+    <title>Wiki Viewer ~ Alec Armstrong</title>
+    
+    
+    <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css'>
+
+        <style>
+      a, a:hover, a:focus, a:active {
+  text-decoration: none;
+}
+
+body, .intro, .searching {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2980b9;
+  -webkit-transition: background-color 1500ms ease;
+  transition: background-color 1500ms ease;
+}
+
+.btn {
+  margin-top: 50px;
+  padding: .5em auto;
+  font-size: 1.45em;
+  background: none;
+  color: #94c6e7;
+  border: 1px solid #94c6e7;
+  border-radius: 25px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.btn:hover, .btn:active, .btn:focus {
+  border: 1px solid #f2d6c3;
+  border-radius: 0px;
+  color: #f2d6c3;
+  outline: none;
+  background: none;
+}
+.btn:active {
+  background-color: #94c6e7;
+  color: #0d293c;
+}
+
+.intro {
+  position: absolute;
+  text-align: center;
+  opacity: 0;
+  top: -10%;
+  left: 50%;
+  -webkit-transition: width 200ms ease;
+  transition: width 200ms ease;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+@media only screen and (min-width: 900px) {
+  .intro {
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .intro {
+    width: 60%;
+  }
+}
+
+h1 {
+  display: none;
+  padding-top: .75em;
+  padding-left: .75em;
+  color: #0d293c;
+}
+h1 small {
+  padding-left: 3.6em;
+  color: #94c6e7;
+  display: none;
+  text-align: right;
+}
+
+h2 {
+  color: #94c6e7;
+  text-align: left;
+}
+h2 .glyphicon {
+  font-size: .7em;
+  letter-spacing: .25em;
+}
+
+h3 {
+  color: #f2d6c3;
+  text-align: right;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-right: .5em;
+}
+
+#search {
+  background-color: #2980b9;
+  border: 2px solid #0d293c;
+  border-radius: 25px;
+  width: 100%;
+  line-height: 2em;
+  color: #0d293c;
+  padding-left: 1em;
+  font-size: 14pt;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+}
+#search:focus {
+  outline: none;
+  background-color: #2e8ece;
+  color: #0d293c;
+}
+
+.searching {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: width 200ms ease;
+  transition: width 200ms ease;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.searching img {
+  display: block;
+  margin: auto;
+}
+
+.ui-autocomplete {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #0d293c;
+  box-shadow: 0px 5px 10px #0d293c;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.ui-autocomplete .ui-menu-item {
+  padding-left: 1em;
+  line-height: 1.25em;
+  color: #0d293c;
+}
+.ui-autocomplete .ui-menu-item:hover, .ui-autocomplete .ui-menu-item:focus, .ui-autocomplete .ui-menu-item:hover {
+  border-left: 0px solid black !important;
+  border-right: 0px solid black !important;
+  border-top: 1px solid #0d293c;
+  border-bottom: 1px solid #0d293c;
+  background: #0d293c;
+  color: #f2d6c3;
+}
+
+.results-page {
+  margin-top: 100px;
+  opacity: 0;
+  text-align: center;
+  -webkit-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+}
+.results-page .block {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1% 2%;
+  margin: 20px auto;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.results-page .block h2 {
+  margin-top: 1%;
+  color: #0d293c;
+}
+.results-page .block p {
+  color: #2d2d2d;
+}
+.results-page .block h2, .results-page .block p {
+  text-align: left;
+}
+
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+  </head>
+
+  <body>
+
+    
+<h1>Wikipedia Viewer<br/><small>by Alec Armstrong</small></h1>
+<div class="container intro">
+  <h2><span class="glyphicon glyphicon-search"></span>Search</h2>
+  <input type="text" id="search"/>
+  <h3>Input text and press enter</h3><a href="#" id="btnSearch">
+    <button class="btn">Search</button></a><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+    <button class="btn">Random</button></a>
+</div>
+      <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js'></script>
+
+        <script>
+      var enterKey = 13;
+var searchingDiv = '';
+var api = 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=extracts&exintro&explaintext&exsentences=1&exlimit=max&callback=?';
+$(document).ready(function () {
+    intro();
+    $('#search').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: 'http://en.wikipedia.org/w/api.php',
+                dataType: 'jsonp',
+                data: {
+                    'action': 'opensearch',
+                    'format': 'json',
+                    'search': request.term
+                },
+                success: function (data) {
+                    response(data[1]);
+                }
+            });
+        }
+    });
+    $('#btnSearch').click(function (e) {
+        e.preventDefault();
+        startSearch($('#search').val());
+    });
+    $('#search').keyup(function (e) {
+        if (e.keyCode == enterKey)
+            startSearch($(this).val());
+    });
+});
+function intro() {
+    $('.intro').animate({
+        top: '50%',
+        opacity: '1'
+    }, 2000, 'easeOutElastic');
+    $('h1').delay(750).fadeIn(1000);
+    $('h1>small').delay(1500).fadeIn(1000);
+}
+function startSearch(searchTerm) {
+    api += '&gsrsearch=' + searchTerm;
+    $.getJSON(api, function (data) {
+        if (!data.hasOwnProperty('query')) {
+            alert('No results found for ' + searchTerm + ' , try again');
+            return;
+        }
+        $('.intro').animate({ top: '150%' }, {
+            duration: 800,
+            easing: 'easeInOutElastic',
+            complete: function () {
+                $('h1').fadeOut(300);
+                $('.intro').hide();
+                showResults(data.query.pages, searchTerm);
+            }
+        });
+    });
+}
+function showResults(pages, search) {
+    $('body').append('<div class="fluid-container results-page">' + '<h2 style="text-align: center"> Results for ' + search + '</h2>' + '<a class="return-home" href="#">' + '<button class="btn">Return</button>' + '</a>' + '<div class="container">');
+    var c = 0;
+    $.each(pages, function (index, val) {
+        $('.container').append('<div class="results">' + '<a href="http://en.wikipedia.org/?curid=' + val.pageid + '" target="_blank">' + '<div class="block" id="' + c + '">' + '<h2>' + val.title + '</h2>' + '<p>' + val.extract + '</p>' + '</div>' + '</a>' + '</div>');
+        console.log(c);
+        c++;
+    });
+    $('body').append('</div>' + '</div>');
+    window.setTimeout(function () {
+        $('.results-page').css('opacity', '1');
+    }, 500);
+    $('.block').on('mouseenter', function () {
+        blockID = $(this).attr('id');
+        $('a > *').not('#' + blockID).css('opacity', '.8');
+        $(this).css('background-color', '#f2d6c3');
+    });
+    $('.block').on('mouseleave', function () {
+        $('a > *').not('#' + blockID).css('opacity', '1');
+        $(this).css('background-color', 'rgba(255,255,255,.7)');
+    });
+    $('.return-home').on('click', function () {
+        history.go(0);
+    });
+}
+      //@ sourceURL=pen.js
+    </script>
+
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+    
+  </body>
+</html>
+ 

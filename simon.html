@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+
+
+    <title>CodePen - Simon</title>
+    <title>Simon ~  Alec Armstrong </title>
+    
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+        <style>
+      html {
+  min-width: 450px;
+}
+
+html, .simon-wrapper {
+  background-color: #ecf0f1;
+}
+
+.page-header {
+  border: 0;
+  background: none;
+}
+.page-header, .page-header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  line-height: 2em;
+  color: #333;
+  font-size: 2em;
+  text-align: center;
+}
+h1 small {
+  color: #888;
+}
+
+.flower-top, .flower-behind {
+  position: absolute;
+  top: 320px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.flower-top {
+  z-index: 1;
+  background: #f1c40f;
+  box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.9), 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+.flower-behind {
+  box-shadow: 0px 5px 0px #2d2d2d;
+}
+
+.flower {
+  margin: 3em auto .5em auto;
+  width: 450px;
+  padding: 0;
+}
+
+.button {
+  float: left;
+  width: 219px;
+  position: relative;
+  margin: 3px;
+  height: 219px;
+  box-shadow: 0 1px 0 white inset, 0 -1px 0 rgba(255, 255, 255, 0.4) inset, 0 3px 0 #2d2d2d, 0 4px 2px rgba(0, 0, 0, 0.5);
+}
+.button:before {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #FFF;
+  position: absolute;
+  content: "";
+  z-index: -1;
+}
+.button:active:before {
+  top: -11px;
+  bottom: -5px;
+  content: "";
+}
+.button:hover {
+  cursor: pointer;
+}
+
+.green {
+  border-radius: 1px 60% 15px 60%;
+  background: #067e30;
+}
+
+.green-active {
+  background: #2ecc71;
+}
+
+.blue {
+  border-radius: 15px 60% 1px 60%;
+  background: #085099;
+}
+
+.blue-active {
+  background: #3498db;
+}
+
+.red {
+  border-radius: 60% 1px 60% 15px;
+  background: #a0090a;
+}
+
+.red-active {
+  background: #e74c3c;
+}
+
+.yellow {
+  border-radius: 60% 15px 60% 1px;
+  background: #c36c00;
+}
+
+.yellow-active {
+  background: #f1c40f;
+}
+
+.green-active, .red-active, .yellow-active, .blue-active {
+  -mos-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  top: 5px;
+}
+
+.game-controls {
+  text-align: center;
+}
+.game-controls a {
+  text-decoration: none;
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid #555;
+  margin: 0 45px;
+}
+@media only screen and (max-width: 533px) {
+  .game-controls a {
+    margin: 0 25px;
+  }
+}
+.game-controls a:active {
+  box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  text-align: center;
+  margin: 0 auto 50px auto;
+  color: #2980b9;
+  padding: 0;
+  font-size: 2.5em;
+}
+
+.start {
+  background: #27ae60;
+  color: white;
+}
+.start:hover, .start:active, .start:focus {
+  background: #2ecc71;
+  color: white;
+}
+
+.stop {
+  background: #f39c12;
+  color: white;
+}
+.stop:hover, .stop:active, .stop:focus {
+  background: #f1c40f;
+  color: white;
+}
+
+.hard {
+  background: #eee;
+  color: #2d2d2d;
+}
+
+h3 {
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  opacity: 0;
+  margin-top: 2em;
+}
+
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+  </head>
+
+  <body>
+
+    
+<audio>
+  <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"/>
+</audio>
+<audio>
+  <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"/>
+</audio>
+<audio>
+  <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"/>
+</audio>
+<audio>
+  <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"/>
+</audio>
+<div class="fluid-container simon-wrapper">
+  <div class="page-header">
+    <h1>Simon<small>&nbspby Alec </small></h1>
+  </div>
+  <div class="container flower">
+    <!--.flower-behind-->
+    <!--.flower-top-->
+    <div class="button green"></div>
+    <div class="button red"></div>
+    <div class="button yellow"></div>
+    <div class="button blue"></div>
+  </div>
+  <div class="game-controls">
+    <h2>0</h2><a href="#" class="start">Start Game</a><a href="#" class="stop">Stop</a><a href="#" class="hard">Hard Mode</a>
+    <h3>Message:&nbsp</h3>
+  </div>
+</div>
+      <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+        <script>
+      var _this;
+var simon = {
+    COLORS: [
+        'green',
+        'red',
+        'yellow',
+        'blue'
+    ],
+    computer: [],
+    player: [],
+    count: 0,
+    playerCount: 0,
+    strict: false,
+    turn: false,
+    click: false,
+    init: function () {
+        this.player.length = 0;
+        this.count = 0;
+        this.playerCount = 0;
+        this.turn = false;
+        this.click = false;
+        _this = this;
+        _this.computer = this.getOrder();
+        $('h2').text(_this.count);
+        $('.button').on('mousedown', function () {
+            if (_this.turn) {
+                var name = _this.getName($(this));
+                var sound = _this.getSound(name);
+                var active = name + '-active';
+                _this.player.push(name);
+                $(this).addClass(active).delay(200).queue(function (next) {
+                    $(this).removeClass(active);
+                    next();
+                });
+                _this.playerCount++;
+                sound.play();
+                if (_this.playerCount === _this.count) {
+                    if (!$(this).hasClass(name))
+                        $(this).addClass(name);
+                    _this.turn = false;
+                    setTimeout(_this.continueGame(), 500);
+                }
+            }
+        });
+        _this.continueGame();
+    },
+    continueGame: function () {
+        if (!_this.strict) {
+            if (_this.count === 20) {
+                setMessage('YOU WON... in easy mode');
+            } else if (_this.checkSame()) {
+                _this.reset();
+                _this.showOrder();
+            } else {
+                setMessage('You messed up, but it\'s okay because everyone get\'s a trophy,\n Take another look at the sequence');
+                _this.turn = false;
+                _this.player.length = 0;
+                _this.playerCount = 0;
+                _this.showOrder();
+            }
+        } else {
+            if (_this.count === 20) {
+                setMessage('You are one hell of a scary dude or dudette!\nYou can now brag that you beat a simon game that looks like a flower on HARD MODE!\nNothing is more hard ass than that!');
+            } else if (_this.checkSame()) {
+                _this.reset();
+                _this.showOrder();
+            } else {
+                setMessage('You suck. Go play the T-ball version.\n Don\'t worry, I suck too :(');
+                _this = undefined;
+                $('.button').off('mousedown');
+            }
+        }
+    },
+    reset: function () {
+        $('h2').text(_this.count);
+        _this.count++;
+        _this.player.length = 0;
+        _this.playerCount = 0;
+    },
+    getOrder: function () {
+        var randArr = [];
+        for (var i = 0; i < 20; i++) {
+            if (window.CP.shouldStopExecution(1)) {
+                break;
+            }
+            randArr.push(this.COLORS[Math.floor(Math.random() * 4)]);
+        }
+        window.CP.exitedLoop(1);
+        return randArr;
+    },
+    showOrder: function (n) {
+        var index = n !== undefined ? n : 0;
+        var time = 0;
+        if (_this.count < 6)
+            time = 950;
+        else if (_this.count < 10)
+            time = 750;
+        else if (_this.count < 14)
+            time = 550;
+        setTimeout(function () {
+            _this.light(_this.computer[index], _this.getSound(_this.computer[index]));
+            index++;
+            if (index < _this.count)
+                _this.showOrder(index);
+            else {
+                _this.turn = true;
+            }
+        }, time);
+    },
+    checkSame: function () {
+        var soFar = _this.computer.slice(0, _this.count);
+        return soFar.join(',') === _this.player.join(',');
+    },
+    getName: function (btnClass) {
+        var className = btnClass.attr('class');
+        return className.substr(className.indexOf(' ') + 1);
+    },
+    getSound: function (str) {
+        return $('audio')[this.COLORS.indexOf(str)];
+    },
+    light: function (name, sound) {
+        var active = name + '-active';
+        $('.' + name).addClass(active).delay(500).queue(function (next) {
+            $(this).removeClass(active);
+            next();
+        });
+        sound.play();
+    }
+};
+$(document).ready(function () {
+    $('.start').click(function () {
+        simon.init();
+    });
+    $('.hard').click(function () {
+        simon.strict = simon.strict === false ? true : false;
+        if (simon.strict) {
+            $('.hard').css('background', '#c0392b');
+            $('.hard').css('color', 'white');
+            setMessage('HARD MODE ACTIVATED', '#e74c3c', 'bold');
+        } else {
+            $('.hard').css('background', '#eee');
+            $('.hard').css('color', '#2d2d2d');
+            setMessage('I bet you play with bumpers in bowling!');
+        }
+    });
+    $('.stop').click(function () {
+        setMessage('Way to give up!');
+        $('h2').text('0');
+        _this = undefined;
+        $('.button').off('mousedown');
+    });
+});
+function setMessage(txt, color, weight) {
+    var msgText = txt;
+    var msgColor = color !== undefined ? color : '#333';
+    var msgWeight = weight !== undefined ? weight : 'normal';
+    var el = $('h3');
+    el.css('color', msgColor);
+    el.css('font-weight', msgWeight);
+    el.text(txt);
+    el.css('opacity', 1);
+    setTimeout(function () {
+        el.css('opacity', 0);
+        el.removeAttr('style');
+    }, 6000);
+}
+      //@ sourceURL=pen.js
+    </script>
+
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+    
+  </body>
+</html>
+ 

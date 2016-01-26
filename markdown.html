@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+
+
+    <title>CodePen - React Markdown Viewer</title>
+    <title> React Markdown Viewer </title>
+    
+    
+    <link rel='stylesheet prefetch' href='https://cdn.jsdelivr.net/foundation/6.1.1/foundation.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+        <style>
+      .header {
+  background-color: #eee;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2c3e50;
+}
+
+#markdown-app {
+  background-color: #eee;
+  padding-bottom: 1em;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+  color: #e74c3c;
+  margin: 0;
+}
+@media only screen and (max-width: 64em) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+@media only screen and (max-width: 45em) {
+  h1 {
+    font-size: 2em;
+  }
+}
+h1 small {
+  color: #a3a3a3;
+}
+
+textarea, .formatted {
+  height: 600px;
+  padding: 1em;
+}
+@media only screen and (max-width: 64em) {
+  textarea, .formatted {
+    height: 50vh;
+  }
+}
+@media only screen and (max-width: 45em) {
+  textarea, .formatted {
+    height: 50vh;
+  }
+}
+
+.formatted {
+  overflow-y: auto;
+}
+
+.focus, textarea:active, textarea:focus, .f-active {
+  background-color: #fff;
+  box-shadow: 0px 0px 8px #2980b9;
+  border-color: #1478bb;
+  transition: box-shadow .5s ease-in-out !important;
+}
+
+textarea {
+  box-shadow: none;
+  background-color: #fafafa;
+}
+
+.f-active {
+  border: 1px solid #1478bb !important;
+}
+
+.formatted {
+  transition: box-shadow .5s ease-in-out !important;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.formatted h1 {
+  color: #3e5871;
+}
+.formatted h2 {
+  color: #507192;
+}
+.formatted h3 {
+  color: #698bac;
+}
+.formatted h4 {
+  color: #8aa4be;
+}
+.formatted h5 {
+  color: #aabed1;
+}
+.formatted h6 {
+  color: #cbd7e3;
+}
+.formatted a {
+  text-decoration: none;
+  color: #c0392b;
+}
+.formatted a:hover {
+  color: #e9a39b;
+}
+.formatted strong, .formatted hr {
+  color: #c0392b;
+}
+.formatted hr {
+  border-color: #d3c1af;
+}
+.formatted table {
+  box-shadow: 2px 2px 2px #2c3e50;
+}
+.formatted table thead > th {
+  background: #2c3e50;
+  color: white;
+}
+.formatted table tbody tr:nth-child(even) {
+  background: #698bac;
+  color: #eee;
+}
+.formatted table tbody tr:nth-child(odd) {
+  background: #cbd7e3;
+}
+.formatted table tbody td {
+  text-indent: .25em;
+}
+.formatted h1, .formatted h2, .formatted h3, .formatted h4, .formatted h5, .formatted h6,
+.formatted p, .formatted table, .formatted tr, .formatted td, .formatted small {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  background-color: #2c3e50;
+  text-align: right;
+  padding-top: 2em;
+}
+.footer .fa.fa-twitter {
+  font-size: 3.5em;
+}
+
+a {
+  margin-right: 10%;
+  color: #ecf1f5;
+}
+a > span {
+  text-decoration: none;
+  font-size: 2.5em;
+}
+
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+  </head>
+
+  <body>
+
+    
+<div class="header">
+  <h1>Markdown Previewer<br class="show-for-small-only"/><small>&nbsp;by Alec Armstrong</small></h1>
+</div>
+<div id="markdown-app"></div>
+<div class="footer"><a href="http://twitter.com/Al_Armz" target="_blank"><i class="fa fa-twitter"></i><span>Contact</span></a></div>
+      <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js'></script>
+
+        <script>
+      'use strict';
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var defaultInput = '## Type in the left box like this\n---\n### You can add hashes for h1 through h6\n#### Just like this \n##### and this\nYou can add an h1 also like this\n=========================\nYou can add an h2 like this also\n----------------------------------------\nYou can add links like http://www.example.com or like this: [Twitter](http://www.twitter.com/Al_Armz)\n\nYou can add bold like **this** or __this__.\n\n```\nconsole.log("You can even type in code!);\n```\nYou can combine them like ***this*** or ___this___.\n\nYou can draw a table to create one like this:\n\n|  Heading 1 |  Heading 2 |\n|---------------|----------------|\n|  cell 1         |  cell 2         |\n|  cell 3         |  cell 4         |\n###### ***Have fun and try out different things!***';
+
+var MarkdownInput = (function (_React$Component) {
+	_inherits(MarkdownInput, _React$Component);
+
+	function MarkdownInput() {
+		_classCallCheck(this, MarkdownInput);
+
+		_React$Component.call(this);
+		this.changeHandler = this.changeHandler.bind(this);
+		this.focusHandler = this.focusHandler.bind(this);
+		this.blurHandler = this.blurHandler.bind(this);
+		this.state = { input: defaultInput, inputActive: false };
+	}
+
+	// end Class
+
+	// end constructor
+
+	MarkdownInput.prototype.parseMarkdown = function parseMarkdown() {
+		return { __html: marked(this.state.input, { sanitize: true }) };
+	};
+
+	// end parser
+
+	// Event Handlers
+
+	MarkdownInput.prototype.focusHandler = function focusHandler() {
+		this.setState({ inputActive: true });
+	};
+
+	MarkdownInput.prototype.blurHandler = function blurHandler() {
+		this.setState({ inputActive: false });
+	};
+
+	MarkdownInput.prototype.changeHandler = function changeHandler(e) {
+		this.setState({ input: e.target.value });
+	};
+
+	// render
+
+	MarkdownInput.prototype.render = function render() {
+		return React.createElement(
+			'div',
+			{ className: 'row' },
+			React.createElement(
+				'div',
+				{ className: 'large-4 columns' },
+				React.createElement(
+					'textarea',
+					{ spellcheck: 'false',
+						onChange: this.changeHandler,
+						onFocus: this.focusHandler,
+						onBlur: this.blurHandler },
+					this.state.input
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'large-8 columns' },
+				React.createElement('div', { className: this.state.inputActive ? 'f-active formatted' : 'formatted', dangerouslySetInnerHTML: this.parseMarkdown() })
+			)
+		); // end return
+	};
+
+	// end render
+	return MarkdownInput;
+})(React.Component);
+
+React.render(React.createElement(MarkdownInput, null), document.getElementById('markdown-app'));
+/* Input box */ /* Output box */
+      //@ sourceURL=pen.js
+    </script>
+
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+    
+  </body>
+</html>
+ 

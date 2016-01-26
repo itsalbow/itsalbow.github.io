@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+
+
+    <title>CodePen - Camper Stories</title>
+    <title>Camper Stories ~ Alec Armstrong</title>
+    
+    
+    <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+        <style>
+      @import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+/* suppress default touch action like double-tap zoom */
+a, button {
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.top {
+  padding-top: 2.5em;
+  text-align: center;
+}
+.top h1, .top h2 {
+  line-height: 1.3em;
+}
+.top h1 {
+  font-size: 3.4em;
+  letter-spacing: .02em;
+  margin: 0;
+  padding-top: .25em;
+  color: #4a2b0f;
+  font-family: 'Fjalla One';
+}
+.top h2 {
+  margin: 0 0 1em 0;
+}
+.top img {
+  display: inline-block;
+  width: 75px;
+  height: auto;
+  background-color: #4a2b0f;
+  border-radius: 20px;
+  border: 1px solid #4a2b0f;
+  box-shadow: inset 0px 2px 0px rgba(255, 255, 255, 0.5), 0px 2px 0px black;
+  -webkit-transition: background-color 300ms ease;
+  -moz-transition: background-color 300ms ease;
+  -o-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+}
+.top img:hover {
+  background-color: #744418;
+}
+
+.col-md-3.col-sm-4.col-xs-12 {
+  margin: 0;
+  padding: 0;
+  height: 350px;
+  max-height: 350px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.story {
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+.story .upVotes {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #2d2d2d;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid black;
+  height: 40px;
+  font-size: 1.5em;
+  top: 10px;
+  right: 10px;
+}
+.story .upVotes i {
+  font-size: 20pt;
+}
+.story p {
+  font-size: 1.333em;
+  color: transparent;
+  height: 350px;
+  padding-top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  -webkit-transition: color 900ms ease;
+  -moz-transition: color 900ms ease;
+  -o-transition: color 900ms ease;
+  transition: color 900ms ease;
+}
+.story .img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.story .img h3 {
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  padding: 15px 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*
+.img {
+	-webkit-transition: all 400ms cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	-moz-transition: all 400ms cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	-o-transition: all 400ms cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	transition: all 400ms cubic-bezier(0.550, 0.085, 0.680, 0.530); // easeInQuad 
+	-webkit-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	-moz-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	-o-transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); 
+	transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); // easeInQuad 
+}*/
+body {
+  background-color: #ddd;
+}
+
+.container {
+  background-color: #fff;
+  box-shadow: 0px 0px 40px black;
+}
+
+    </style>
+
+    <script>
+  window.console = window.console || function(t) {};
+</script>
+
+    
+    
+  </head>
+
+  <body>
+
+    
+<div class="container">
+  <div class="top"><a href="http://freecodecamp.com" target="_blank"><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-f1b681380c0b0380-300x300.png" alt="free code camp logo"/></a>
+    <h1>FreeCodeCamp</h1>
+    <h2>Camper News</h2>
+  </div>
+</div>
+      <script src="//assets.codepen.io/assets/common/stopExecutionOnTimeout-f961f59a28ef4fd551736b43f94620b5.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.0.1/color-thief.min.js'></script>
+
+        <script>
+      var story;
+var jLink = '', jHead = '', jDescrip = '', jImg = '', jUps = 0;
+$(document).ready(function () {
+    $.getJSON('http://www.freecodecamp.com/news/hot', function (data) {
+        $.each(data, function (index) {
+            jLink = data[index].link;
+            jHead = data[index].headline;
+            jUps = data[index].upVotes.length;
+            if (data[index].description != 'undefined' && data[index].description !== '') {
+                jDescrip = data[index].description;
+            } else if (data[index].metaDescription != 'undefined' && data[index].metaDescription !== '') {
+                jDescrip = data[index].metaDescription;
+            } else {
+                jDescrip = data[index].storyLink;
+            }
+            if (data[index].image !== '') {
+                jImg = data[index].image;
+            } else if (data[index].author.picture.toString().indexOf('/undefined') > 0) {
+                jImg = 'https://pbs.twimg.com/profile_images/562385977390272512/AK29YaTf_400x400.png';
+            } else {
+                jImg = data[index].author.picture;
+            }
+            if (jLink.indexOf('undefined') < 0)
+                buildStory(jLink, jHead, jImg, jDescrip, jUps, index);
+        });
+    });
+    $(document).on('mouseenter', '.story', function () {
+        var changeHeight = $(this).height() - $(this).find('h3').height() - 28;
+        var paddingTop = $(this).find('h3').height() + 75;
+        $(this).find('h3').animate({ bottom: '+=' + changeHeight + 'px' }, {
+            duration: 700,
+            easing: 'easeInOutCirc'
+        });
+        $(this).find('.img').animate({ marginBottom: '-=350px' }, {
+            duration: 400,
+            easing: 'swing'
+        });
+        $(this).find('p').animate({ paddingTop: '+=' + paddingTop + 'px' }, {
+            duration: 800,
+            easing: 'swing'
+        });
+        $(this).find('p').css('color', 'rgba(0,0,0,1)');
+        $(this).find('.upVotes').fadeOut(300);
+    });
+    $(document).on('mouseleave', '.story', function () {
+        $(this).find('h3').animate({ bottom: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('.img').animate({ marginBottom: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('p').animate({ paddingTop: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('p').css('color', 'rgba(0,0,0,0)');
+        $(this).find('.upVotes').fadeIn(300);
+    });
+    $(document).on('click', '.story', function () {
+        $(this).find('h3').animate({ bottom: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('.img').animate({ marginBottom: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('p').animate({ paddingTop: '0' }, {
+            duration: 500,
+            easing: 'easeOutBounce'
+        });
+        $(this).find('p').css('color', 'rgba(0,0,0,0)');
+        $(this).find('.upVotes').fadeIn(300);
+    });
+});
+function buildStory(link, heading, img, descrip, upvotes, index) {
+    var outputStr = '<div class="col-md-3 col-sm-4 col-xs-12">' + '<a href="' + link + '" target="_blank">' + '<div id="' + index + '" class="story">' + '<div class="img">' + '<div class="upVotes"><i class="fa fa-arrow-up"></i>' + upvotes + '</div>' + '<h3>' + heading + '</h3>' + '</div>' + '<p>' + descrip + '</p>' + '</div>' + '</a>' + '</div>';
+    $('.container').append(outputStr);
+    $('#' + index).find('.img').css('background-image', 'url("' + img + '")');
+}
+      //@ sourceURL=pen.js
+    </script>
+
+    
+    <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+    
+  </body>
+</html>
+ 
