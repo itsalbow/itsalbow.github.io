@@ -402,8 +402,9 @@ span.fun {
 }
 
 .portfolioList li {
-  margin: 54px;
-  border: 1px solid white;
+  margin: 0px;
+  border: none;
+  border-collapse: collapse;
 }
 
 .portfolioList img {

@@ -397,17 +397,19 @@ span.fun {
 
 .portfolioList {
   list-style: none;
-  margin: 0px;
-  padding-left: 10%;
+  margin: auto 0;
+  padding-left: 5%;
+  padding-bottom: 150px !important;
 }
 
 .portfolioList li {
-  margin: 10px;
-  border: 1px solid white;
+  margin: 0px;
+  border: none;
+  border-collapse: collapse;
 }
 
 .portfolioList img {
-  margin: 0px;
+  margin: 1px;
   padding: 0px;
   float: left;
   z-index: 4;
